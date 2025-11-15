@@ -1,151 +1,104 @@
-# 📘 C++ Fundamental Projects Guide
+# C++ Projects
 
-This README contains step-by-step guides for four beginner-friendly C++ projects.  
-Each project uses **fundamental C++ concepts**: variables, loops, conditionals, functions, arrays/vectors, structs/classes, and file I/O.
+This repository contains two beginner-friendly C++ projects:
 
----
+1. **Login and Registration System**  
+2. **Rock Paper Scissors Game**
 
-# 1️⃣ Student Management System
-
-## 🎯 Goal
-A console program to manage student records (ID, name, grades).  
-Supports adding, listing, updating, deleting, and saving/loading data.
-
-## 🧰 Concepts Used
-- Variables & data types  
-- Structs or classes  
-- `std::vector`  
-- Functions  
-- Loops & conditionals  
-- File I/O
-
-## 🪜 Steps
-1. Create a `Student` struct with: `id`, `name`, `vector<int> grades`.
-2. Store students in a `vector<Student>`.
-3. Create a menu with options:
-   - Add student  
-   - List students  
-   - View student  
-   - Update student  
-   - Delete student  
-   - Save to file  
-   - Load from file
-4. Write separate functions for each menu option.
-5. Save data using a format like:  
-   `id|name|grade1,grade2,grade3`
-6. Load data by reading and splitting each line.
-7. Validate input (unique ID, grade range).
-8. Test all features.
+Both projects use basic C++ concepts such as input/output streams, file handling, structures, and control statements.
 
 ---
 
-# 2️⃣ Simple Banking App
+## 1. Login and Registration System
 
-## 🎯 Goal
-A console banking system that lets users create accounts, deposit, withdraw, transfer money, and view history.
+### Project Goal
+A simple login system where users can register and login using a username and password. User credentials are stored in files to simulate a simple database.
 
-## 🧰 Concepts Used
-- Classes & objects  
-- Encapsulation  
-- `std::vector`  
-- Loops & conditionals  
-- File I/O
+### Technologies Used
+- C++ programming language  
+- Input/Output Streams (`<iostream>`)  
+- File Handling (`<fstream>`)  
+- Strings (`<string>`)  
+- Structures (`struct User`)  
 
-## 🪜 Steps
-1. Create an `Account` class with:
-   - `id`, `owner`, `balance`  
-   - `vector<string> history`
-2. Add methods:
-   - `deposit(amount)`  
-   - `withdraw(amount)`  
-   - `addHistory(text)`  
-   - `printInfo()`
-3. Store all accounts in a `vector<Account>`.
-4. Create a menu:
-   - Create account  
-   - Deposit  
-   - Withdraw  
-   - Transfer  
-   - Show balance  
-   - Show history  
-   - Save  
-   - Load
-5. Implement deposit/withdraw with balance checks.
-6. Implement transfer between accounts.
-7. Save accounts and history to a file.
-8. Load them back into the program.
-9. Test invalid inputs (negative amounts, missing accounts).
+### Features
+- **User Registration**
+  - Enter a username and password
+  - Validate that username is unique
+  - Password validation (e.g., minimum length)
+  - Store credentials in a file (`username.txt`) or a common database file
+- **User Login**
+  - Enter username and password
+  - Verify credentials from stored files
+  - Grant or deny access
+- Persistent storage (data remains after program exit)
+- Optional: simple password hashing for security
 
----
+### Program Flow
+1. Display menu:
+   - Register
+   - Login
+   - Exit
+2. Registration process:
+- Ask for username
+- Validate uniqueness
+- Ask for password
+- Store credentials in file
+3. Login process:
+- Ask for username and password
+- Verify credentials
+- Grant or deny access
+4. Exit program
 
-# 3️⃣ To-Do List CLI Program
+### Input Validation
+- Username: unique, no spaces, not empty  
+- Password: minimum length (e.g., 6 characters), not empty  
 
-## 🎯 Goal
-A command-line program for managing to-do tasks (add, list, mark done, delete).
-
-## 🧰 Concepts Used
-- Structs  
-- `std::vector`  
-- Loops & conditionals  
-- File I/O  
-- Simple string parsing
-
-## 🪜 Steps
-1. Create a `Task` struct with:  
-   `id`, `text`, `bool done`
-2. Store tasks in a `vector<Task>`.
-3. Create a menu:
-   - Add task  
-   - List tasks  
-   - Mark done  
-   - Delete task  
-   - Save  
-   - Load
-4. Auto-increment task IDs.
-5. Save tasks as:  
-   `id|done|text`
-6. Load by splitting each line.
-7. Validate input (task ID must exist).
-8. Test adding, marking, removing, saving, and loading.
+### Testing Checklist
+- Register a new user → file created  
+- Try registering existing username → blocked  
+- Login with correct credentials → success  
+- Login with wrong credentials → failure  
+- Program persists data after restart  
 
 ---
 
-# 4️⃣ Tic-Tac-Toe Game
+## 2. Rock Paper Scissors Game
 
-## 🎯 Goal
-A 3×3 Tic-Tac-Toe game in the console (Player X vs Player O).
+### Project Goal
+A two-player game (user vs computer) where each player chooses Rock, Paper, or Scissors. The winner is decided according to standard rules:
 
-## 🧰 Concepts Used
-- Arrays or vectors  
-- Functions  
-- Loops & conditionals  
-- Game logic (winner checking)
+- Rock vs Scissors → Rock wins  
+- Rock vs Paper → Paper wins  
+- Paper vs Scissors → Scissors wins  
 
-## 🪜 Steps
-1. Create a 3×3 board using:  
-   `char board[3][3]` or `vector<char> board(9)`
-2. Write a function to print the board.
-3. Write functions to check:
-   - Winner  
-   - Draw  
-   - Valid move
-4. Game loop:
-   - Print board  
-   - Ask current player for a move  
-   - Validate input  
-   - Update board  
-   - Check win/draw  
-5. Switch players every turn.
-6. Print final result.
-7. (Optional) Ask to play again.
-8. Test all winning conditions and invalid moves.
+### Technologies Used
+- C++ programming language  
+- Input/Output Streams (`<iostream>`)  
+- Standard Library Functions (`<cstdlib>`, `<ctime>`)  
 
----
+### Features
+- User selects choice: Rock, Paper, or Scissors  
+- Computer randomly selects choice  
+- Compare choices to determine winner  
+- Display both choices and result  
+- Optional: keep score and allow replay  
 
-# ✅ Final Notes
-- Keep functions small and clear.  
-- Validate all user input.  
-- Compile with warnings enabled:  
-  ```bash
-  g++ main.cpp -o app -std=c++17 -Wall -Wextra
-  ```
+### Program Flow
+1. Display menu:
+   - Play
+   - Exit
+2. User selects choice  
+3. Computer generates random choice  
+4. Display choices using readable names  
+5. Determine winner:
+- If equal → Draw
+- Else, apply rules to determine winner
+6. Ask user if they want to play again  
+
+### Suggested Functions
+```cpp
+int getUserChoice();
+int getComputerChoice();
+void showChoices(int user, int computer);
+void determineWinner(int user, int computer);
